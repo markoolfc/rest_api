@@ -10,7 +10,7 @@ class Api(object):
             self.headers_content = {}
         else:
             self.headers_content = {'Content-Type':'application/json',
-               'Authorization': 'Bearer {}'.format(api_key)})
+               'Authorization': 'Bearer {}'.format(api_key)}
         self.host = host
         self.ssl_ca_cert = ssl_ca_cert
         logging.basicConfig(filename=log_dest,level=logging.DEBUG)
