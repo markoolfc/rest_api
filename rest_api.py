@@ -14,7 +14,7 @@ class Api(object):
         self.ssl_ca_cert = ssl_ca_cert
         logging.basicConfig(filename=log_dest,level=logging.DEBUG)
     
-    def vm_action(self,name,namespace,action):
+    def vm_action(self, namespace, name, action):
         url = f"/apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/{action}"
         requests.put(self.host + url, headers=self.headers, verify=self.ssl_ca_cert)
 
