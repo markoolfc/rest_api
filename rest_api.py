@@ -21,6 +21,11 @@ class Api(object):
         r = requests.put(self.host + url, headers=self.headers_content, verify=self.ssl_ca_cert)
         logging.debug(r.headers)
 
+    def vm_status(self, namespace, name, action):
+        url = f"/apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/"
+        r = requests.get(self.host + url, headers=self.headers_content, verify=self.ssl_ca_cert)
+        return r.json()
+
     def test(self,url):
         response = requests.get(self.host + url, headers=self.headers, verify=self.ssl_ca_cert)
         print(response.content)
